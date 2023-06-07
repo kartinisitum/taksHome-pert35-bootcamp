@@ -1,0 +1,233 @@
+swagger: '2.0'
+info:
+  title: Mahasiswa Mata Kuliah API
+  description: |
+    Mahasiswa Mata Kuliah API for documenting API that have we created
+  version: 1.0.0
+host: localhost:3000
+basePath: /
+schemes:
+  - http
+  - https
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    description: |
+      authentication types for bearer header
+paths:
+  /mahasiswa:
+    get:
+      summary: Returns a list of mahasiswa.
+      description: |
+        Returns a list of mahasiswa with their details
+      tags:
+        - "Mahasiswa"
+      parameters:
+        - name: search
+          in: query
+          type: string
+          description: Parameter for search the mahasiswa
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+    post:
+      summary: Create new mahasiswa.
+      description: Create new mahasiswa and return the created data
+      tags:
+        - "Mahasiswa"
+      security:
+        - Bearer: []
+      parameters:
+        - name: create mahasiswa
+          in: body
+          required: true
+          description: Create mahasiswa body request
+          schema:
+            type: object
+            properties:
+              nama:
+                type: string
+              nim:
+                type: string
+              jurusan:
+                type: string
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+  /mahasiswa/{id}:
+    get:
+      summary: Returns one of mahasiswa.
+      description: |
+        Returns one mahasiswa with its details
+      tags:
+        - "Mahasiswa"
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+    put:
+      summary: Update one of mahasiswa.
+      description: |
+        Update one mahasiswa
+      tags:
+        - "Mahasiswa"
+      security:
+        - Bearer: []
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+        - name: update mahasiswa
+          in: body
+          required: true
+          description: Update mahasiswa body request
+          schema:
+            type: object
+            properties:
+              nama:
+                type: string
+              nim:
+                type: string
+              jurusan:
+                type: string
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+    delete:
+      summary: Delete one of mahasiswa.
+      description: |
+        Delete one mahasiswa with its details
+      tags:
+        - "Mahasiswa"
+      security:
+        - Bearer: []
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+  /mata-kuliah:
+    get:
+      summary: Returns a list of mata kuliah.
+      description: |
+        Returns a list of mata kuliah with their details
+      tags:
+        - "Mata Kuliah"
+      parameters:
+        - name: search
+          in: query
+          type: string
+          description: Parameter for search the mata kuliah
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+    post:
+      summary: Create new mata kuliah.
+      description: Create new mata kuliah and return the created data
+      tags:
+        - "Mata Kuliah"
+      security:
+        - Bearer: []
+      parameters:
+        - name: create mata kuliah
+          in: body
+          required: true
+          description: Create mata kuliah body request
+          schema:
+            type: object
+            properties:
+              kode:
+                type: string
+              nama:
+                type: string
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+  /mata-kuliah/{id}:
+    get:
+      summary: Returns one of mata kuliah.
+      description: |
+        Returns one mata kuliah with its details
+      tags:
+        - "Mata Kuliah"
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+    put:
+      summary: Update one of mata kuliah.
+      description: |
+        Update one mata kuliah
+      tags:
+        - "Mata Kuliah"
+      security:
+        - Bearer: []
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+        - name: update mata kuliah
+          in: body
+          required: true
+          description: Update mata kuliah body request
+          schema:
+            type: object
+            properties:
+              kode:
+                type: string
+              nama:
+                type: string
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+    delete:
+      summary: Delete one of mata kuliah.
+      description: |
+        Delete one mata kuliah with its details
+      tags:
+        - "Mata Kuliah"
+      security:
+        - Bearer: []
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
